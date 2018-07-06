@@ -1,7 +1,7 @@
 # The revenge of Mr. Whiskers
 
 ## Descripción
-
+El juego consistirá en un gato, llamado Mr. Whiskers, que cada dia cuando va a comer, un pepino lo asusta. El enemigo básicamente le lanzará cosas que odie y Mr. Whiskers tendrá que esquivarlas. En algun momento podrá vengarse y dispararle para derrotarlo y poder comer tranquilo.
 
 ## MVP - Tecnología (DOM - CANVAS)
 El juego estará hecho en __canvas__.
@@ -121,7 +121,7 @@ function Bullet(){
 
 Especificar las url del proyecto y del deploy
 
-[Link Repositorio](http://github.com)
+[Link Repositorio](https://github.com/nixiescream/the-revenge-of-mr.whiskers)
 
 [Link Deploy](http://github.com)
 
