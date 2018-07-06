@@ -28,12 +28,12 @@ var ctx;
 var game = new Game([options]);
 game.start();
 
-function buildSplash();
-function destroySplash();
-function buildGame();
-function destroyGame();
-function buildGameOver();
-function destroyGameOver();
+function buildSplash(){};
+function destroySplash(){};
+function buildGame(){};
+function destroyGame(){};
+function buildGameOver(){};
+function destroyGameOver(){};
 ```
 
 Clase __game.js__:
@@ -42,11 +42,11 @@ function Game([options]){
 
 }
 
-Game.prototype.start = function();
-Game.prototype._assignControlToKeys = function();
-Game.prototype._update = function ();
-Game.prototype.stop = function();
-Game.prototype.checkCollisions = function();
+Game.prototype.start = function(){};
+Game.prototype._assignControlToKeys = function(){};
+Game.prototype._update = function (){};
+Game.prototype.stop = function(){};
+Game.prototype.checkCollisions = function(){};
 
 ```
 
@@ -56,11 +56,11 @@ function Render(){
 
 }
 
-Render.prototype.drawEnviroment = function();
-Render.prototype.drawCat = function();
-Render.prototype.drawEnemy = function();
-Render.prototype.drawObjects = function();
-Render.prototype.drawBullet = function();
+Render.prototype.drawEnviroment = function(){};
+Render.prototype.drawCat = function(){};
+Render.prototype.drawEnemy = function(){};
+Render.prototype.drawObjects = function(){};
+Render.prototype.drawBullet = function(){};
 ```
 
 Clase __cat.js__:
@@ -72,13 +72,13 @@ function Cat(){
     var life;
 }
 
-Cat.prototype.run = function();
-Cat.prototype.goLeft = function();
-Cat.prototype.goRight = function();
-Cat.prototype.moveForward = function();
-Cat.prototype.jump = function();
-Cat.prototype.shot = function();
-Cat.prototype.die = function();
+Cat.prototype.run = function(){};
+Cat.prototype.goLeft = function(){};
+Cat.prototype.goRight = function(){};
+Cat.prototype.moveForward = function(){};
+Cat.prototype.jump = function(){};
+Cat.prototype.shot = function(){};
+Cat.prototype.die = function(){};
 
 ```
 Clase __enemy.js__
@@ -89,8 +89,8 @@ function Enemy(){
     var life;
 }
 
-Enemy.prototype.throwObject = function();
-Enemy.prototype.die = function();
+Enemy.prototype.throwObject = function(){};
+Enemy.prototype.die = function(){};
 
 ```
 
