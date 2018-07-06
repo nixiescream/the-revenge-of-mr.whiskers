@@ -39,7 +39,8 @@ function destroyGameOver(){};
 Clase __game.js__:
 ```javascript
 function Game([options]){
-
+    this.cat = new Cat(),
+    this.enemy = new Enemy(),
 }
 
 Game.prototype.start = function(){};
