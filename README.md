@@ -116,7 +116,7 @@ function Bullet(){
 
 ## Trello
 
-[Link url](https://trello.com)
+[Link url](https://trello.com/b/CZ6Z4xlZ/the-revenge-of-mrwhiskers)
 
 ## Git
 
