@@ -17,6 +17,10 @@ El juego estará hecho en __canvas__.
 ## Backlog
 -El gato puede disparar, y ganas el juego si matas al enemigo.
 
+-El gato tiene 3 vidas.
+
+-El enemigo tiene vida y necesitas muchos disparos para matarlo.
+
 -Hay plataformas dónde subirte y poder esquivar/disparar mejor.
 
 ##  Estructuras de Datos
@@ -67,10 +71,10 @@ Render.prototype.drawBullet = function(){};
 Clase __cat.js__:
 ```javascript
 function Cat(){
-    this.x;
-    this.y;
-    this.direction;
-    this.life;
+    this.x,
+    this.y,
+    this.direction,
+    this.life,
 }
 
 Cat.prototype.run = function(){};
@@ -85,9 +89,9 @@ Cat.prototype.die = function(){};
 Clase __enemy.js__
 ```javascript
 function Enemy(){
-    this.x;
-    this.y;
-    this.life;
+    this.x,
+    this.y,
+    this.life,
 }
 
 Enemy.prototype.throwObject = function(){};
@@ -98,8 +102,8 @@ Enemy.prototype.die = function(){};
 Clase __bullet.js__:
 ```javascript
 function Bullet(){
-    this.x;
-    this.y;
+    this.x,
+    this.y,
 }
 ```
 
