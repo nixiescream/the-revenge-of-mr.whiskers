@@ -17,6 +17,10 @@ El juego estará hecho en __canvas__.
 ## Backlog
 -El gato puede disparar, y ganas el juego si matas al enemigo.
 
+-El gato tiene 3 vidas.
+
+-El enemigo tiene vida y necesitas muchos disparos para matarlo.
+
 -Hay plataformas dónde subirte y poder esquivar/disparar mejor.
 
 ##  Estructuras de Datos
