@@ -67,10 +67,10 @@ Render.prototype.drawBullet = function(){};
 Clase __cat.js__:
 ```javascript
 function Cat(){
-    var x;
-    var y;
-    var direction;
-    var life;
+    this.x;
+    this.y;
+    this.direction;
+    this.life;
 }
 
 Cat.prototype.run = function(){};
@@ -85,9 +85,9 @@ Cat.prototype.die = function(){};
 Clase __enemy.js__
 ```javascript
 function Enemy(){
-    var x;
-    var y;
-    var life;
+    this.x;
+    this.y;
+    this.life;
 }
 
 Enemy.prototype.throwObject = function(){};
@@ -98,8 +98,8 @@ Enemy.prototype.die = function(){};
 Clase __bullet.js__:
 ```javascript
 function Bullet(){
-    var x;
-    var y;
+    this.x;
+    this.y;
 }
 ```
 
