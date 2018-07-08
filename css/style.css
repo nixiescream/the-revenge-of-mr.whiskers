@@ -1,11 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Chewy|Mountains+of+Christmas:400,700|Press+Start+2P');
 
 
-/* body{
-    font-family: 'Chewy', cursive;
+body{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    /* font-family: 'Chewy', cursive;
     font-family: 'Press Start 2P', cursive;
-    font-family: 'Mountains of Christmas', cursive;
-} */
+    font-family: 'Mountains of Christmas', cursive; */
+}
+
+#principal-section{
+    background-image: url('../images/DgzANoOXkAM8VyE.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    height: 815px;
+    color: white;
+}
 
 #main-section{
     display: flex;

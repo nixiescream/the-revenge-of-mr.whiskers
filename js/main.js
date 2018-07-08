@@ -4,7 +4,7 @@ function main(){
 
     function buildSplash(body, firstScript){
         var mainSection = document.createElement('section');
-        mainSection.setAttribute('id','main-section');
+        mainSection.setAttribute('id','principal-section');
         var titleContainer = document.createElement('div');
         titleContainer.setAttribute('class', 'heading-container');
         var gameTitle = document.createElement('h1');
@@ -43,7 +43,7 @@ function main(){
     buildSplash(body, firstScript);
 
     function destroySplash(body){
-        var mainSection = document.getElementById('main-section');
+        var mainSection = document.getElementById('principal-section');
         body.removeChild(mainSection);
 
     };
