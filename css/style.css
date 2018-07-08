@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Chewy|Mountains+of+Christmas:400,700|Press+Start+2P');
 
 
-body{
-    /* font-family: 'Chewy', cursive; */
-    /* font-family: 'Press Start 2P', cursive; */
-    /* font-family: 'Mountains of Christmas', cursive; */
-}
+/* body{
+    font-family: 'Chewy', cursive;
+    font-family: 'Press Start 2P', cursive;
+    font-family: 'Mountains of Christmas', cursive;
+} */
 
 #main-section{
     display: flex;
