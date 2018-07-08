@@ -4,12 +4,16 @@ function main(){
         var firstScript = document.getElementById('first-script');
         var mainSection = document.createElement('section');
         mainSection.setAttribute('id','main-section');
+        var titleContainer = document.createElement('div');
+        titleContainer.setAttribute('class', 'heading-container');
         var gameTitle = document.createElement('h1');
-        var textTitle = document.createTextNode("The revenge of Mr. Whiskers"); 
-        gameTitle.appendChild(textTitle);  
+        gameTitle.innerHTML = "<h1>The revenge of <br><span>Mr. Whiskers</span></h1>";
+        var buttonContainer = document.createElement('div');
+        buttonContainer.setAttribute('class', 'button-container');
         var startButton = document.createElement('button');
         startButton.setAttribute('id','start-button');
         startButton.setAttribute('value','start');
+        startButton.setAttribute('class', 'btn btn-start');
         var textStartButton = document.createTextNode("Start!");
         startButton.appendChild(textStartButton);
         startButton.addEventListener('click', function(){
@@ -19,6 +23,7 @@ function main(){
         var instructionsButton = document.createElement('button');
         instructionsButton.setAttribute('id', 'instructions-button');
         instructionsButton.setAttribute('value','instructions');
+        instructionsButton.setAttribute('class', 'btn btn-secondary');
         var textInstructionsButton = document.createTextNode("Instructions");
         instructionsButton.appendChild(textInstructionsButton);
         instructionsButton.addEventListener('click', function(){
@@ -26,9 +31,11 @@ function main(){
             buildInstructions();
         });
     
-        mainSection.appendChild(gameTitle);
-        mainSection.appendChild(startButton);
-        mainSection.appendChild(instructionsButton);
+        titleContainer.appendChild(gameTitle);
+        mainSection.appendChild(titleContainer);
+        buttonContainer.appendChild(startButton);
+        buttonContainer.appendChild(instructionsButton);
+        mainSection.appendChild(buttonContainer);
         body.insertBefore(mainSection, firstScript);
     };
 
@@ -77,6 +84,7 @@ function main(){
         var startButton = document.createElement('button');
         startButton.setAttribute('id','start-button');
         startButton.setAttribute('value','start');
+        startButton.setAttribute('class', 'btn btn-start');
         var textStartButton = document.createTextNode("Replay!!");
         startButton.appendChild(textStartButton);
         startButton.addEventListener('click', function(){
@@ -86,6 +94,7 @@ function main(){
         var goToStartButton = document.createElement('button');
         goToStartButton.setAttribute('id', 'go-to-start');
         goToStartButton.setAttribute('value','go-to-start');
+        goToStartButton.setAttribute('class', 'btn btn-secondary');
         var textGoToStartButton = document.createTextNode("Go to start");
         goToStartButton.appendChild(textGoToStartButton);
         goToStartButton.addEventListener('click', function(){

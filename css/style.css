@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Chewy|Mountains+of+Christmas:400,700|Press+Start+2P');
+
+
+body{
+    font-family: 'Chewy', cursive;
+    /* font-family: 'Press Start 2P', cursive; */
+    font-family: 'Mountains of Christmas', cursive;
+}
+
+#main-section{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+
+.heading-container{
+    font-family: 'Chewy', cursive; 
+    text-align: center;
+    height: 400px;
+}
+
+span{
+    font-family: 'Mountains of Christmas', cursive;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.button-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.btn{
+    font-family: 'Press Start 2P', cursive;
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    height: 50px;
+    padding: 2px 10px;
+    outline: 0;
+}
+
+.btn-start{
+    background-color: lime;
+}
+
+.btn-start:hover{
+    background-color: limegreen;
+}
+
+.btn-secondary{
+    background-color: coral;
+}
+
+.btn-secondary:hover{
+    background-color: firebrick;
+}
