@@ -44,6 +44,7 @@ Game.prototype._assignControlToKeys = function(){
 
 Game.prototype.doFrame = function (){
     this.render.drawCat(this.width, this.height);
+    this.render.drawEnemy(this.width, this.height);
     this.render.drawEnviroment(this.width, this.height);
     this.cat.run();
     this.cat.jump();

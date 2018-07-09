@@ -1,6 +1,4 @@
 function Enemy(){
-    this.x,
-    this.y,
     this.life
 }
 
