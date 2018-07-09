@@ -36,7 +36,7 @@ Cat.prototype.goRight = function(){
 Cat.prototype.jump = function(){
     if (this.up) {
         this.t += 1;
-        this.y += 0.33*this.t*this.t - 5.75*this.t;
+        this.y += 0.33*this.t*this.t - 5.5*this.t;
         // this.y += this.speed_y;
         // this.speed_y += this.gravity;
         if (this.y > this.floor){
