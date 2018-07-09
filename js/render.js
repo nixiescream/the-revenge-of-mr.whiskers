@@ -16,7 +16,7 @@ Render.prototype.drawCat = function(width, height){
 };
 Render.prototype.drawEnemy = function(width, height){
     this.ctx.fillStyle = 'red';
-    this.ctx.fillRect(width-400, 0, 150, height);
+    this.ctx.fillRect(width-250, 0, 230, height);
 };
 Render.prototype.drawObjects = function(){};
 Render.prototype.drawBullet = function(){};

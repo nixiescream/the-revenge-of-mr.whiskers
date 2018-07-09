@@ -60,7 +60,7 @@ function main(){
         var newCanvas = document.createElement('canvas');
         newCanvas.setAttribute('id', 'game');
         newCanvas.setAttribute('width', '1584');
-        newCanvas.setAttribute('height', '790');
+        newCanvas.setAttribute('height', '810');
 
         mainSection.appendChild(newCanvas);
         body.insertBefore(mainSection, firstScript);
