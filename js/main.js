@@ -73,11 +73,12 @@ function main(){
         console.log(width, height);
 
         var game = new Game(ctx, width, height, floor);
-        game.start();
-        if(game.gameOver()){
-            destroyGame(body);
-            buildGameOver(body, firstScript);
-        }
+        game.start(gameEnd);
+    };
+
+    function gameEnd(){
+        destroyGame(body);
+        buildGameOver(body, firstScript);
     };
 
     function destroyGame(body){

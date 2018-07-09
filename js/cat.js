@@ -18,7 +18,9 @@ Cat.prototype.run = function(){
     if(this.move){
         switch(this.direction){
             case 'left':
-                this.x -= this.speed_x;
+                if(this.x > 0){
+                    this.x -= this.speed_x;
+                }
                 break;
             case 'right':
                 this.x += this.speed_x;

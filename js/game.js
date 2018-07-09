@@ -7,11 +7,11 @@ function Game(ctx, width, height, floor){
     this.enemy = new Enemy(this.width, this.height);
     this.render = new Render(this.ctx, this.cat, this.enemy);
     this.collisionWithEnemy = false;
-    this.collisionWithCanvas = false;
 };
 
-Game.prototype.start = function(){
+Game.prototype.start = function(gameEnd){
     this._assignControlToKeys();
+    this.gameEnd = gameEnd;
     this.intervalGame = window.requestAnimationFrame(this.doFrame.bind(this));
 };
 
@@ -56,25 +56,24 @@ Game.prototype.doFrame = function (){
     this.render.drawEnviroment(this.width, this.height);
     this.cat.run();
     this.cat.jump();
-    this.intervalGame = window.requestAnimationFrame(this.doFrame.bind(this));
+    this.checkCollisionCatVsEnemy();
+    if(this.gameOver()){
+        this.gameEnd();
+    } else {
+        this.intervalGame = window.requestAnimationFrame(this.doFrame.bind(this));
+    }
 };
 
 // Game.prototype.stop = function(){};
 
 Game.prototype.checkCollisionCatVsEnemy = function(){
-    if(this.cat.x <= this.width){
-        this.collisionWithCanvas = true;
-    }
-};
-
-Game.prototype.checkCollisionCatVsCanvas = function(){
     if (this.cat.x + this.cat.width >= this.enemy.x){
         this.collisionWithEnemy = true;
     } 
 };
 
 Game.prototype.gameOver = function(){
-    if(this.collisionWithEnemy || this.collisionWithCanvas){
+    if(this.collisionWithEnemy){
         return true;
     }
 };
