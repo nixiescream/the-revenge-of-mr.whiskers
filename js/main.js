@@ -66,7 +66,12 @@ function main(){
         body.insertBefore(mainSection, firstScript);
         var canvas = document.getElementById('game');
         var ctx = canvas.getContext('2d');
-        var game = new Game();
+        var width = canvas.width;
+        var height = canvas.height;
+
+        console.log(width, height);
+
+        var game = new Game(ctx, width, height);
         game.start();
 
         // setTimeout(function(){
