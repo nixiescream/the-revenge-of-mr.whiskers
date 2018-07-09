@@ -68,16 +68,12 @@ function main(){
         var ctx = canvas.getContext('2d');
         var width = canvas.width;
         var height = canvas.height;
+        var floor = height-200;
 
         console.log(width, height);
 
-        var game = new Game(ctx, width, height);
+        var game = new Game(ctx, width, height, floor);
         game.start();
-
-        // setTimeout(function(){
-        //     destroyGame(body);
-        //     buildGameOver(body, firstScript);
-        // }, 5000);
     };
 
     function destroyGame(body){
