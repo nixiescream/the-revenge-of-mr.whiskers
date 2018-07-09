@@ -5,26 +5,33 @@ function main(){
     function buildSplash(body, firstScript){
         var mainSection = document.createElement('section');
         mainSection.setAttribute('id','principal-section');
+
         var titleContainer = document.createElement('div');
         titleContainer.setAttribute('class', 'heading-container');
+
         var gameTitle = document.createElement('h1');
         gameTitle.innerHTML = "<h1>The revenge of <br><span>Mr. Whiskers</span></h1>";
+
         var buttonContainer = document.createElement('div');
         buttonContainer.setAttribute('class', 'button-container');
+
         var startButton = document.createElement('button');
         startButton.setAttribute('id','start-button');
         startButton.setAttribute('value','start');
         startButton.setAttribute('class', 'btn btn-start');
+
         var textStartButton = document.createTextNode("Start!");
         startButton.appendChild(textStartButton);
         startButton.addEventListener('click', function(){
             destroySplash(body);
             buildGame(body, firstScript);
         });
+
         var instructionsButton = document.createElement('button');
         instructionsButton.setAttribute('id', 'instructions-button');
         instructionsButton.setAttribute('value','instructions');
         instructionsButton.setAttribute('class', 'btn btn-secondary');
+
         var textInstructionsButton = document.createTextNode("Instructions");
         instructionsButton.appendChild(textInstructionsButton);
         instructionsButton.addEventListener('click', function(){
@@ -48,12 +55,15 @@ function main(){
 
     };
     function buildGame(body, firstScript){
+        var mainSection = document.createElement('section');
+        mainSection.setAttribute('id', 'game-container')
         var newCanvas = document.createElement('canvas');
         newCanvas.setAttribute('id', 'game');
         newCanvas.setAttribute('width', '1584');
         newCanvas.setAttribute('height', '790');
 
-        body.insertBefore(newCanvas, firstScript);
+        mainSection.appendChild(newCanvas);
+        body.insertBefore(mainSection, firstScript);
         var canvas = document.getElementById('game');
         var ctx = canvas.getContext('2d');
         //var game = new Game();
@@ -66,34 +76,41 @@ function main(){
     };
 
     function destroyGame(body){
-        var canvas = document.getElementById('game');
-        body.removeChild(canvas);
+        var mainSection = document.getElementById('game-container');
+        body.removeChild(mainSection);
     };
 
     function buildGameOver(body, firstScript){
         var mainSection = document.createElement('section');
         mainSection.setAttribute('id','main-section');
+
         var titleContainer = document.createElement('div');
         titleContainer.setAttribute('class', 'heading-container');
+
         var gameTitle = document.createElement('h1');
-        gameTitle.innerHTML = "Game over &#x1F63F;"
+        gameTitle.innerHTML = "Game over &#x1F63F;";
+
         var buttonContainer = document.createElement('div');
         buttonContainer.setAttribute('class', 'button-container');
+
         var startButton = document.createElement('button');
         startButton.setAttribute('id','start-button');
         startButton.setAttribute('value','start');
         startButton.setAttribute('class', 'btn btn-start');
+
         var textStartButton = document.createTextNode("Replay!!");
         startButton.appendChild(textStartButton);
         startButton.addEventListener('click', function(){
             destroyGameOver(body);
             buildGame(body, firstScript);
         });
+
         var goToStartButton = document.createElement('button');
         goToStartButton.setAttribute('id', 'go-to-start');
         goToStartButton.setAttribute('value','go-to-start');
         goToStartButton.setAttribute('class', 'btn btn-secondary');
         var textGoToStartButton = document.createTextNode("Go to start");
+
         goToStartButton.appendChild(textGoToStartButton);
         goToStartButton.addEventListener('click', function(){
             destroyGameOver(body);
@@ -116,22 +133,28 @@ function main(){
     function buildInstructions(body, firstScript){
         var mainSection = document.createElement('section');
         mainSection.setAttribute('id','main-section');
+
         var titleContainer = document.createElement('div');
         titleContainer.setAttribute('class', 'heading-container');
+
         var instructionsTitle = document.createElement('h1');
         var textTitle = document.createTextNode("Instructions!");
         instructionsTitle.appendChild(textTitle);
+
         var instructionsContent = document.createElement('div');
         instructionsContent.setAttribute('class', 'content')
         instructionsContent.innerHTML = "<p>&#x21E6; to move left</p>\
         <p>&#x21E8; to move right</p><p>&#x21E7; to jump</p>\
         <p>Try not to die &#X1F638</p>";
+
         var buttonContainer = document.createElement('div');
         buttonContainer.setAttribute('class', 'button-container');
+
         var goToStartButton = document.createElement('button');
         goToStartButton.setAttribute('id', 'go-to-start');
         goToStartButton.setAttribute('value','go-to-start');
-        goToStartButton.setAttribute('class', 'btn btn-info')
+        goToStartButton.setAttribute('class', 'btn btn-info');
+
         var textGoToStartButton = document.createTextNode("Go to start");
         goToStartButton.appendChild(textGoToStartButton);
         goToStartButton.addEventListener('click', function(){
