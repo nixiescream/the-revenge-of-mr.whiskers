@@ -59,7 +59,7 @@ function main(){
         mainSection.setAttribute('id', 'game-container')
         var newCanvas = document.createElement('canvas');
         newCanvas.setAttribute('id', 'game');
-        newCanvas.setAttribute('width', '1584');
+        newCanvas.setAttribute('width', '1600');
         newCanvas.setAttribute('height', '810');
 
         mainSection.appendChild(newCanvas);
@@ -74,6 +74,10 @@ function main(){
 
         var game = new Game(ctx, width, height, floor);
         game.start();
+        if(game.gameOver()){
+            destroyGame(body);
+            buildGameOver(body, firstScript);
+        }
     };
 
     function destroyGame(body){

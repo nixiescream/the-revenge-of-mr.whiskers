@@ -1,7 +1,7 @@
 function Render(ctx, cat, enemy){
-    this.ctx = ctx,
-    this.cat = cat,
-    this.enemy = enemy
+    this.ctx = ctx;
+    this.cat = cat;
+    this.enemy = enemy;
 }
 
 Render.prototype.drawEnviroment = function(width, height){
@@ -12,11 +12,11 @@ Render.prototype.drawEnviroment = function(width, height){
 Render.prototype.drawCat = function(width, height){
     this.ctx.clearRect(0, 0, width, height);
     this.ctx.fillStyle = 'blue';
-    this.ctx.fillRect(this.cat.x, this.cat.y, 50, 50);
+    this.ctx.fillRect(this.cat.x, this.cat.y, this.cat.width, this.cat.height);
 };
 Render.prototype.drawEnemy = function(width, height){
     this.ctx.fillStyle = 'red';
-    this.ctx.fillRect(width-250, 0, 230, height);
+    this.ctx.fillRect(this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height);
 };
 Render.prototype.drawObjects = function(){};
 Render.prototype.drawBullet = function(){};

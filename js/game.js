@@ -1,11 +1,13 @@
 function Game(ctx, width, height, floor){
-    this.ctx = ctx,
-    this.width = width,
-    this.height = height,
-    this.floor = floor,
-    this.cat = new Cat(this.width, this.floor),
-    this.enemy = new Enemy(),
-    this.render = new Render(this.ctx, this.cat, this.enemy)
+    this.ctx = ctx;
+    this.width = width;
+    this.height = height;
+    this.floor = floor;
+    this.cat = new Cat(this.width, this.floor);
+    this.enemy = new Enemy(this.width, this.height);
+    this.render = new Render(this.ctx, this.cat, this.enemy);
+    this.collisionWithEnemy = false;
+    this.collisionWithCanvas = false;
 };
 
 Game.prototype.start = function(){
@@ -23,6 +25,9 @@ Game.prototype._assignControlToKeys = function(){
                 this.cat.move = true;
                 this.cat.goLeft();
                 break;
+            case 40: //arror down
+                //some code
+                break;
             case 39: //arrow right
                 this.cat.move = true;
                 this.cat.goRight();
@@ -34,6 +39,9 @@ Game.prototype._assignControlToKeys = function(){
         switch (e.keyCode) {
             case 37: //arrow left
                 this.cat.move = false;
+                break;
+            case 40: //arror down
+                //some code
                 break;
             case 39: //arrow right
                 this.cat.move = false;
@@ -50,5 +58,23 @@ Game.prototype.doFrame = function (){
     this.cat.jump();
     this.intervalGame = window.requestAnimationFrame(this.doFrame.bind(this));
 };
+
 // Game.prototype.stop = function(){};
-Game.prototype.checkCollisions = function(){};
+
+Game.prototype.checkCollisionCatVsEnemy = function(){
+    if(this.cat.x <= this.width){
+        this.collisionWithCanvas = true;
+    }
+};
+
+Game.prototype.checkCollisionCatVsCanvas = function(){
+    if (this.cat.x + this.cat.width >= this.enemy.x){
+        this.collisionWithEnemy = true;
+    } 
+};
+
+Game.prototype.gameOver = function(){
+    if(this.collisionWithEnemy || this.collisionWithCanvas){
+        return true;
+    }
+};
