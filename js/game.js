@@ -10,7 +10,7 @@ function Game(ctx, width, height, floor){
 
 Game.prototype.start = function(){
     this._assignControlToKeys();
-    this.intervalGame = window.requestAnimationFrame(this._update.bind(this));
+    this.intervalGame = window.requestAnimationFrame(this.doFrame.bind(this));
 };
 
 Game.prototype._assignControlToKeys = function(){
@@ -18,24 +18,36 @@ Game.prototype._assignControlToKeys = function(){
         switch (e.keyCode) {
             case 38: //arrow up
                 this.cat.up = true;
-                this.cat.jump();
                 break;
             case 37: //arrow left
+                this.cat.move = true;
                 this.cat.goLeft();
-                this.cat.run();
                 break;
             case 39: //arrow right
+                this.cat.move = true;
                 this.cat.goRight();
-                this.cat.run();
+                break; 
+        }
+    }.bind(this);
+
+    document.onkeyup = function (e) {
+        switch (e.keyCode) {
+            case 37: //arrow left
+                this.cat.move = false;
+                break;
+            case 39: //arrow right
+                this.cat.move = false;
                 break; 
         }
     }.bind(this);
 };
 
-Game.prototype._update = function (){
+Game.prototype.doFrame = function (){
     this.render.drawCat(this.width, this.height);
     this.render.drawEnviroment(this.width, this.height);
-    this.intervalGame = window.requestAnimationFrame(this._update.bind(this));
+    this.cat.run();
+    this.cat.jump();
+    this.intervalGame = window.requestAnimationFrame(this.doFrame.bind(this));
 };
 // Game.prototype.stop = function(){};
 Game.prototype.checkCollisions = function(){};
