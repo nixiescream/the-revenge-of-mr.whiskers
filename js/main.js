@@ -66,13 +66,13 @@ function main(){
         body.insertBefore(mainSection, firstScript);
         var canvas = document.getElementById('game');
         var ctx = canvas.getContext('2d');
-        //var game = new Game();
-        //game.start();
+        var game = new Game();
+        game.start();
 
-        setTimeout(function(){
-            destroyGame(body);
-            buildGameOver(body, firstScript);
-        }, 5000);
+        // setTimeout(function(){
+        //     destroyGame(body);
+        //     buildGameOver(body, firstScript);
+        // }, 5000);
     };
 
     function destroyGame(body){
