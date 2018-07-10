@@ -7,12 +7,14 @@ function Game(ctx, width, height, floor){
     this.enemy = new Enemy(this.width, this.height, this.floor);
     this.obstacles = [];
     this.render = new Render(this.ctx, this.cat, this.enemy, this.obstacles);
+    this.score = 0;
 };
 
 Game.prototype.start = function(gameEnd){
     this._assignControlToKeys();
     this.gameEnd = gameEnd;
     this.throwObstacles();
+    this.getScore();
     this.intervalGame = window.requestAnimationFrame(this.doFrame.bind(this));
 };
 
@@ -58,6 +60,7 @@ Game.prototype.doFrame = function (){
     this.render.drawObstacles();
     this.render.drawEnemy();
     this.render.drawLifes(this.cat.life);
+    this.render.drawScore(this.score);
     this.cat.run();
     this.cat.jump();
     this.checkObstacle();
@@ -68,6 +71,12 @@ Game.prototype.doFrame = function (){
     } else {
         this.intervalGame = window.requestAnimationFrame(this.doFrame.bind(this));
     }
+};
+
+Game.prototype.getScore = function(){
+    this.scoreID = setInterval(function(){
+        this.score++;
+    }.bind(this), 1000);
 };
 
 // Game.prototype.stop = function(){};
@@ -107,6 +116,7 @@ Game.prototype.checkObstacle = function(){
 
 Game.prototype.gameOver = function(){
     if(this.cat.life === 0){
+        clearInterval(this.scoreID);
         return true;
     }
 };

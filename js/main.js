@@ -183,6 +183,6 @@ function main(){
 }
 
 window.onload = function() {
-    main();
+    var fontsLoaded = document.fonts.load('48px Chewy').then(main());
   };
 
