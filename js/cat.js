@@ -8,7 +8,8 @@ function Cat(floor){
     this.life = 3;
     this.speed_x = 15;
     this.speed_y = -30;
-    // this.gravity = 2
+    this.gravity = 5.5;
+    this.acceleration = 0.33;
     this.t = 0;
     this.up = false;
     this.move = false;
@@ -51,7 +52,7 @@ Cat.prototype.goRight = function(){
 Cat.prototype.jump = function(){
     if (this.up) {
         this.t += 1;
-        this.y += 0.33*this.t*this.t - 5.5*this.t;
+        this.y += this.acceleration*this.t*this.t - this.gravity*this.t;
         // this.y += this.speed_y;
         // this.speed_y += this.gravity;
         if (this.y > this.floor){

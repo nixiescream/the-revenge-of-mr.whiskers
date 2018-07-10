@@ -71,7 +71,7 @@ Game.prototype.doFrame = function (){
     this.render.drawBullet();
     this.render.drawEnemy();
     this.render.drawLifes(this.cat.life);
-    this.render.drawScore(this.score);
+    this.render.drawScore(this.enemy.life);
     this.cat.run();
     this.cat.jump();
     this.shoot();
@@ -84,6 +84,8 @@ Game.prototype.doFrame = function (){
     } else {
         this.intervalGame = window.requestAnimationFrame(this.doFrame.bind(this));
     }
+
+    this.countBullet ++;
 };
 
 Game.prototype.getScore = function(){
@@ -101,8 +103,10 @@ Game.prototype.checkCollisionCatVsEnemy = function(){
 };
 
 Game.prototype.shoot = function(){
+    if(this.countBullet <= 20){return}
     if(this.shooting){
-        this.bullets.push(new Bullet(this.cat.x, this.cat.y));
+        this.bullets.push(new Bullet(this.cat.x, this.cat.y, this.cat.width, this.cat.height));
+        this.countBullet = 0;
     } else {
         this.bullets.forEach(function(bullet, index, bulletsArr){
             if(bullet.x < 0){

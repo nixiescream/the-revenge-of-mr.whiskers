@@ -1,9 +1,9 @@
-function Bullet(catx, caty){
+function Bullet(catx, caty, catw, cath){
     this.x = catx;
-    this.y = caty;
-    this.width = 5;
-    this.height = 5;
-    this.damage = 2;
+    this.y = caty+cath/2;
+    this.width = 10;
+    this.height = 10;
+    this.damage = 20;
     this.start();
 }
 
@@ -20,5 +20,5 @@ Bullet.prototype.clearIntervalId = function(){
 };
 
 Bullet.prototype.move = function(){
-    this.x += 20;
+    this.x += 25;
 };

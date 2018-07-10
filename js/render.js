@@ -38,15 +38,12 @@ Render.prototype.drawLifes = function(catLife){
     this.ctx.fillText('Life: ' + catLife, 10, 50);
 }
 
-Render.prototype.drawScore = function(score){
-    var minutes = Math.floor(score/60);
-    var seconds = score%60;
-
-    var time = ("0" + minutes).slice(-2) + ':' + ("0" + seconds).slice(-2);;
+Render.prototype.drawScore = function(enemyLife){
+    
 
     this.ctx.font = '48px Chewy';
     this.ctx.fillStyle = 'black';
-    this.ctx.fillText('Score: ' + time, 10, 100);
+    this.ctx.fillText('Enemy life: ' + enemyLife, 10, 100);
 };
 
 Render.prototype.drawBullet = function(){
