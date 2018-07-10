@@ -151,6 +151,8 @@ function main(){
         instructionsContent.setAttribute('class', 'content')
         instructionsContent.innerHTML = "<p>&#x21E6; to move left</p>\
         <p>&#x21E8; to move right</p><p>&#x21E7; to jump</p>\
+        <p>&#x21E9; to teabag</p>\
+        <p>X to shoot</p>\
         <p>Try not to die &#X1F638</p>";
 
         var buttonContainer = document.createElement('div');
