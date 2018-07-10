@@ -4,6 +4,5 @@ function Enemy(width, height){
     this.width = 230;
     this.height = height-150;
     this.life = 3000;
+    this.collision = false;
 }
-
-Enemy.prototype.die = function(){};

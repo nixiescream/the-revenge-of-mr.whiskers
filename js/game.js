@@ -7,8 +7,9 @@ function Game(ctx, width, height, floor){
     this.enemy = new Enemy(this.width, this.height, this.floor);
     this.obstacles = [];
     this.bullets = [];
-    this.render = new Render(this.ctx, this.cat, this.enemy, this.obstacles);
+    this.render = new Render(this.ctx, this.cat, this.enemy, this.obstacles, this.bullets);
     this.score = 0;
+    this.shooting = false;
 };
 
 Game.prototype.start = function(gameEnd){
@@ -38,6 +39,7 @@ Game.prototype._assignControlToKeys = function(){
                 this.cat.goRight();
                 break;
             case 88: //x
+                this.shooting = true;
                 break; 
         }
     }.bind(this);
@@ -55,6 +57,7 @@ Game.prototype._assignControlToKeys = function(){
                 this.cat.move = false;
                 break; 
             case 88: //x
+                this.shooting = false;
                 break;
         }
     }.bind(this);
@@ -65,14 +68,17 @@ Game.prototype.doFrame = function (){
     this.render.drawEnviroment(this.width, this.height);
     this.render.drawCat();
     this.render.drawObstacles();
+    this.render.drawBullet();
     this.render.drawEnemy();
     this.render.drawLifes(this.cat.life);
     this.render.drawScore(this.score);
     this.cat.run();
     this.cat.jump();
+    this.shoot();
     this.checkObstacle();
     this.checkCollisionCatVsEnemy();
     this.checkCollisionCatVsObstacle();
+    this.checkCollisionEnemyVsBullet();
     if(this.gameOver()){
         this.gameEnd();
     } else {
@@ -94,6 +100,22 @@ Game.prototype.checkCollisionCatVsEnemy = function(){
     } 
 };
 
+Game.prototype.shoot = function(){
+    if(this.shooting){
+        this.bullets.push(new Bullet(this.cat.x, this.cat.y));
+    } else {
+        this.bullets.forEach(function(bullet, index, bulletsArr){
+            if(bullet.x < 0){
+                bulletsArr.shift();
+            }
+        }.bind(this));
+    }
+};
+
+Game.prototype.clearShoot = function(){
+    this.bullets.shift();
+};
+
 Game.prototype.throwObstacles = function(){
     this.intervalPepinil = setInterval(function(){
         this.obstacles.push(new Obstacle(this.width, this.floor));
@@ -112,6 +134,20 @@ Game.prototype.checkCollisionCatVsObstacle = function(){
     }.bind(this));
 };
 
+Game.prototype.checkCollisionEnemyVsBullet = function(){
+    this.bullets.forEach(function(bullet){
+        if (bullet.x + bullet.width >= this.enemy.x){
+            this.enemy.collision = false;
+            if(!(this.enemy.collision) && this.enemy.life > 0){
+                this.enemy.collision = true;
+                this.enemy.life = this.enemy.life - bullet.damage;
+                this.clearShoot();
+                console.log(this.enemy.life);
+            }
+        }
+    }.bind(this));
+};
+
 Game.prototype.checkObstacle = function(){
     this.obstacles.forEach(function(obstacle, index, obstaclesArr){
         if(obstacle.x < 0){
@@ -122,7 +158,7 @@ Game.prototype.checkObstacle = function(){
 };
 
 Game.prototype.gameOver = function(){
-    if(this.cat.life === 0){
+    if(this.cat.life === 0 || this.enemy.life === 0){
         clearInterval(this.scoreID);
         return true;
     }

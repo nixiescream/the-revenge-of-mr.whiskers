@@ -1,8 +1,9 @@
-function Render(ctx, cat, enemy, obstacles){
+function Render(ctx, cat, enemy, obstacles, bullets){
     this.ctx = ctx;
     this.cat = cat;
     this.enemy = enemy;
     this.obstacles = obstacles;
+    this.bullets = bullets;
 }
 
 Render.prototype.drawEnviroment = function(width, height){
@@ -48,4 +49,9 @@ Render.prototype.drawScore = function(score){
     this.ctx.fillText('Score: ' + time, 10, 100);
 };
 
-Render.prototype.drawBullet = function(){};
+Render.prototype.drawBullet = function(){
+    this.bullets.forEach(function(bullet){
+        this.ctx.fillStyle ='orange';
+        this.ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+    }.bind(this));
+};
