@@ -12,6 +12,7 @@ function Cat(floor){
     this.t = 0;
     this.up = false;
     this.move = false;
+    this.teaBag = false;
 }
 
 Cat.prototype.run = function(){
@@ -26,6 +27,16 @@ Cat.prototype.run = function(){
                 this.x += this.speed_x;
                 break;
         }
+    }
+};
+
+Cat.prototype.teaBagging = function(){
+    if(this.teaBag){
+        this.height = this.height-25;
+        this.y = this.y+25;
+    } else {
+        this.height = 50;
+        this.y = this.floor;
     }
 };
 
@@ -50,6 +61,3 @@ Cat.prototype.jump = function(){
         }
     }
 };
-
-Cat.prototype.shot = function(){};
-Cat.prototype.die = function(){};

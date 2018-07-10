@@ -3,7 +3,7 @@ function Enemy(width, height){
     this.y = 0;
     this.width = 230;
     this.height = height-150;
-    this.life;
+    this.life = 3000;
 }
 
 Enemy.prototype.die = function(){};

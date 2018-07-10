@@ -6,6 +6,7 @@ function Game(ctx, width, height, floor){
     this.cat = new Cat(this.floor);
     this.enemy = new Enemy(this.width, this.height, this.floor);
     this.obstacles = [];
+    this.bullets = [];
     this.render = new Render(this.ctx, this.cat, this.enemy, this.obstacles);
     this.score = 0;
 };
@@ -29,11 +30,14 @@ Game.prototype._assignControlToKeys = function(){
                 this.cat.goLeft();
                 break;
             case 40: //arror down
-                //some code
+                this.cat.teaBag = true;
+                this.cat.teaBagging();
                 break;
             case 39: //arrow right
                 this.cat.move = true;
                 this.cat.goRight();
+                break;
+            case 88: //x
                 break; 
         }
     }.bind(this);
@@ -44,11 +48,14 @@ Game.prototype._assignControlToKeys = function(){
                 this.cat.move = false;
                 break;
             case 40: //arror down
-                //some code
+                this.cat.teaBag = false;
+                this.cat.teaBagging();
                 break;
             case 39: //arrow right
                 this.cat.move = false;
                 break; 
+            case 88: //x
+                break;
         }
     }.bind(this);
 };
