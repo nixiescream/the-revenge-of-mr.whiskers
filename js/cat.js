@@ -5,7 +5,7 @@ function Cat(floor){
     this.height = 50;
     this.floor = floor;
     this.direction = 'right';
-    this.life = 1;
+    this.life = 3;
     this.speed_x = 15;
     this.speed_y = -30;
     // this.gravity = 2

@@ -1,9 +1,10 @@
 function Obstacle(width, floor){
     this.x = width-200;
-    this.y = Math.floor(Math.random()* (450 - 610) + 610);
+    this.y = Math.floor(Math.random()* (570 - 610) + 610);
     this.width = 35;
     this.height = 35;
     this.intervalId = undefined;
+    this.collision = false;
     this.start();
 }
 

@@ -31,4 +31,9 @@ Render.prototype.drawBackground = function(width,height){
     this.ctx.clearRect(0, 0, width, height);
 }
 
+Render.prototype.drawLifes = function(catLife){
+    this.ctx.font = '48px sans-serif';
+    this.ctx.fillText('Life: ' + catLife, 10, 50);
+}
+
 Render.prototype.drawBullet = function(){};
