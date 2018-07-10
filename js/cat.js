@@ -1,4 +1,4 @@
-function Cat(width, floor){
+function Cat(floor){
     this.x = 200;
     this.y = floor;
     this.width = 50;
