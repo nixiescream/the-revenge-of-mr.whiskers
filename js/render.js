@@ -32,18 +32,16 @@ Render.prototype.drawBackground = function(width,height){
     this.ctx.clearRect(0, 0, width, height);
 }
 
-Render.prototype.drawLifes = function(catLife){
+Render.prototype.drawCatLife = function(){
     this.ctx.font = '48px Chewy';
     this.ctx.fillStyle = 'black';
-    this.ctx.fillText('Life: ' + catLife, 10, 50);
+    this.ctx.fillText('Life: ' + this.cat.life, 10, 50);
 }
 
-Render.prototype.drawScore = function(enemyLife){
-    
-
+Render.prototype.drawEnemyLife = function(){
     this.ctx.font = '48px Chewy';
     this.ctx.fillStyle = 'black';
-    this.ctx.fillText('Enemy life: ' + enemyLife, 10, 100);
+    this.ctx.fillText('Enemy life: ' + this.enemy.life, 10, 100);
 };
 
 Render.prototype.drawBullet = function(){
