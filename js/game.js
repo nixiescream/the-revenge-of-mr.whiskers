@@ -28,7 +28,7 @@ Game.prototype._assignControlToKeys = function(){
                 this.cat.move = true;
                 this.cat.goLeft();
                 break;
-            case 40: //arror down
+            case 40: //arrow down
                 this.cat.teaBag = true;
                 this.cat.teaBagging();
                 break;
@@ -47,7 +47,7 @@ Game.prototype._assignControlToKeys = function(){
             case 37: //arrow left
                 this.cat.move = false;
                 break;
-            case 40: //arror down
+            case 40: //arrow down
                 this.cat.teaBag = false;
                 this.cat.teaBagging();
                 break;

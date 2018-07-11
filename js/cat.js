@@ -32,9 +32,9 @@ Cat.prototype.run = function(){
 };
 
 Cat.prototype.teaBagging = function(){
-    if(this.teaBag){
-        this.height = this.height-25;
-        this.y = this.y+25;
+    if(this.teaBag && !this.up && !this.move){
+        this.height = 25;
+        this.y = 635;
     } else {
         this.height = 50;
         this.y = this.floor;
@@ -50,7 +50,7 @@ Cat.prototype.goRight = function(){
 };
 
 Cat.prototype.jump = function(){
-    if (this.up) {
+    if (this.up && !this.teaBag) {
         this.t += 1;
         this.y += this.acceleration*this.t*this.t - this.gravity*this.t;
         // this.y += this.speed_y;
