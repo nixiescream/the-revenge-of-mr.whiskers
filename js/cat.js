@@ -53,8 +53,6 @@ Cat.prototype.jump = function(){
     if (this.up && !this.teaBag) {
         this.t += 1;
         this.y += this.acceleration*this.t*this.t - this.gravity*this.t;
-        // this.y += this.speed_y;
-        // this.speed_y += this.gravity;
         if (this.y > this.floor){
             this.y = this.floor;
             this.t = 0;
