@@ -64,6 +64,13 @@ Game.prototype._assignControlToKeys = function(){
 };
 
 Game.prototype.doFrame = function (){
+    this.cat.run();
+    this.cat.jump();
+    this.shoot();
+    this.checkObstacle();
+    this.checkCollisionCatVsEnemy();
+    this.checkCollisionCatVsObstacle();
+    this.checkCollisionEnemyVsBullet();
     this.render.drawBackground(this.width, this.height);
     this.render.drawEnviroment(this.width, this.height);
     this.render.drawCat();
@@ -72,13 +79,6 @@ Game.prototype.doFrame = function (){
     this.render.drawEnemy();
     this.render.drawLifes(this.cat.life);
     this.render.drawScore(this.enemy.life);
-    this.cat.run();
-    this.cat.jump();
-    this.shoot();
-    this.checkObstacle();
-    this.checkCollisionCatVsEnemy();
-    this.checkCollisionCatVsObstacle();
-    this.checkCollisionEnemyVsBullet();
     if(this.gameOver()){
         this.gameEnd();
     } else {
@@ -154,7 +154,7 @@ Game.prototype.checkCollisionEnemyVsBullet = function(){
 
 Game.prototype.checkObstacle = function(){
     this.obstacles.forEach(function(obstacle, index, obstaclesArr){
-        if(obstacle.x < 0){
+        if(obstacle.x < 0 || obstacle.collision === true){
             obstacle.clearIntervalId();
             obstaclesArr.shift();
         }
