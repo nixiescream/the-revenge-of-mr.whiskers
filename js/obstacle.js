@@ -5,6 +5,8 @@ function Obstacle(width, floor){
     this.height = 35;
     this.intervalId = undefined;
     this.collision = false;
+    this.image = new Image();
+    this.image.src = "images/sprites/darth-cucumber1.png";
     this.start();
 }
 

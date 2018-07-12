@@ -101,9 +101,19 @@ Game.prototype.checkCollisionCatVsEnemy = function(){
 Game.prototype.shoot = function(){
     if(this.countBullet <= 20){return}
     if(this.shooting){
+        if(this.cat.teaBag && this.shooting){
+            this.cat.image.src="images/sprites/cat-teabag2.png";
+        }else{
+            this.cat.image.src="images/sprites/cat2.png";
+        }
         this.bullets.push(new Bullet(this.cat.x, this.cat.y, this.cat.width, this.cat.height));
         this.countBullet = 0;
     } else {
+        if(this.cat.teaBag && !this.shooting){
+            this.cat.image.src="images/sprites/cat-teabag1.png";
+        }else if(!this.cat.teaBag && !this.shooting){
+            this.cat.image.src="images/sprites/cat1.png";
+        }
         this.bullets.forEach(function(bullet, index, bulletsArr){
             if(bullet.x < 0){
                 bulletsArr.shift();

@@ -1,8 +1,8 @@
 function Cat(floor){
     this.x = 200;
     this.y = floor;
-    this.width = 50;
-    this.height = 50;
+    this.width = 59;
+    this.height = 99;
     this.floor = floor;
     this.direction = 'right';
     this.life = 3;
@@ -14,6 +14,8 @@ function Cat(floor){
     this.up = false;
     this.move = false;
     this.teaBag = false;
+    this.image = new Image();
+    this.image.src = "images/sprites/cat1.png";
 }
 
 Cat.prototype.run = function(){
@@ -33,11 +35,13 @@ Cat.prototype.run = function(){
 
 Cat.prototype.teaBagging = function(){
     if(this.teaBag && !this.up && !this.move){
-        this.height = 25;
-        this.y = 635;
+        this.height = 49.5;
+        this.y = 615;
+        this.width = 95;
     } else {
-        this.height = 50;
+        this.height = 99;
         this.y = this.floor;
+        this.width = 59;
     }
 };
 

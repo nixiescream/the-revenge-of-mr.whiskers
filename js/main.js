@@ -68,9 +68,7 @@ function main(){
         var ctx = canvas.getContext('2d');
         var width = canvas.width;
         var height = canvas.height;
-        var floor = height-200;
-
-        console.log(width, height);
+        var floor = height-249;
 
         var game = new Game(ctx, width, height, floor);
         game.start(gameEnd);

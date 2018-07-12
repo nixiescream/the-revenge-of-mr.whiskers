@@ -1,9 +1,11 @@
 function Bullet(catx, caty, catw, cath){
     this.x = catx;
     this.y = caty+cath/2;
-    this.width = 10;
-    this.height = 10;
+    this.width = 20;
+    this.height = 20;
     this.damage = 20;
+    this.image = new Image();
+    this.image.src = "images/sprites/hairball.png";
     this.start();
 }
 

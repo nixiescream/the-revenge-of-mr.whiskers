@@ -12,13 +12,11 @@ Render.prototype.drawEnviroment = function(width, height){
 };
 
 Render.prototype.drawCat = function(){
-    this.ctx.fillStyle = 'blue';
-    this.ctx.fillRect(this.cat.x, this.cat.y, this.cat.width, this.cat.height);
+    this.ctx.drawImage(this.cat.image, this.cat.x, this.cat.y, this.cat.width, this.cat.height);
 };
 
 Render.prototype.drawEnemy = function(){
-    this.ctx.fillStyle = 'red';
-    this.ctx.fillRect(this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height);
+    this.ctx.drawImage(this.enemy.image, this.enemy.x, this.enemy.y, this.enemy.width, this.enemy.height);
 };
 
 Render.prototype.drawObstacles = function(){
@@ -46,7 +44,6 @@ Render.prototype.drawEnemyLife = function(){
 
 Render.prototype.drawBullet = function(){
     this.bullets.forEach(function(bullet){
-        this.ctx.fillStyle ='orange';
-        this.ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+        this.ctx.drawImage(bullet.image, bullet.x, bullet.y, bullet.width, bullet.height);
     }.bind(this));
 };
