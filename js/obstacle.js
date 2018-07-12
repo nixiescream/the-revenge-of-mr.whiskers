@@ -1,12 +1,12 @@
 function Obstacle(width, floor){
     this.x = width-200;
     this.y = Math.floor(Math.random()* (550 - 590) + 590);
-    this.width = 35;
-    this.height = 35;
+    this.width = 33;
+    this.height = 90;
     this.intervalId = undefined;
     this.collision = false;
     this.image = new Image();
-    this.image.src = "images/sprites/darth-cucumber1.png";
+    this.image.src = "images/sprites/cucumber.png";
     this.start();
 }
 

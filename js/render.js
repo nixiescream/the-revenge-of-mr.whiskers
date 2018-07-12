@@ -21,8 +21,7 @@ Render.prototype.drawEnemy = function(){
 
 Render.prototype.drawObstacles = function(){
     this.obstacles.forEach(function(obstacle){
-        this.ctx.fillStyle ='black';
-        this.ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+        this.ctx.drawImage(obstacle.image, obstacle.x, obstacle.y, obstacle.width, obstacle.height);
     }.bind(this));
 };
 
