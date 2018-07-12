@@ -5,7 +5,7 @@ function Bullet(catx, caty, catw, cath){
     this.height = 20;
     this.damage = 20;
     this.image = new Image();
-    this.image.src = "images/sprites/hairball.png";
+    this.image.src = "./images/sprites/hairball.png";
     this.start();
 }
 

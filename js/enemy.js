@@ -6,5 +6,5 @@ function Enemy(width, height){
     this.life = 3000;
     this.collision = false;
     this.image = new Image();
-    this.image.src = "images/sprites/darth-cucumber1.png";
+    this.image.src = "./images/sprites/darth-cucumber1.png";
 }

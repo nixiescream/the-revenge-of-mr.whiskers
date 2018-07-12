@@ -15,7 +15,7 @@ function Cat(floor){
     this.move = false;
     this.teaBag = false;
     this.image = new Image();
-    this.image.src = "images/sprites/cat1.png";
+    this.image.src = "./images/sprites/cat1.png";
 }
 
 Cat.prototype.run = function(){

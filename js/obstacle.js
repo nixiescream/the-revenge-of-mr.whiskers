@@ -6,7 +6,7 @@ function Obstacle(width, floor){
     this.intervalId = undefined;
     this.collision = false;
     this.image = new Image();
-    this.image.src = "images/sprites/cucumber.png";
+    this.image.src = "./images/sprites/cucumber.png";
     this.start();
 }
 
