@@ -44,7 +44,6 @@ Render.prototype.drawEnemyLife = function(){
 
 Render.prototype.drawBullet = function(){
     this.bullets.forEach(function(bullet){
-        this.ctx.fillStyle ='black';
-        this.ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+        this.ctx.drawImage(bullet.image, bullet.x, bullet.y, bullet.width, bullet.height);
     }.bind(this));
 };
