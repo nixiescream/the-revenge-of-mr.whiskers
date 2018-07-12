@@ -7,7 +7,7 @@ function Render(ctx, cat, enemy, obstacles, bullets){
 }
 
 Render.prototype.drawEnviroment = function(width, height){
-    this.ctx.fillStyle = 'green';
+    this.ctx.fillStyle = 'black';
     this.ctx.fillRect(0, height-150, width, height);
 };
 
@@ -21,7 +21,7 @@ Render.prototype.drawEnemy = function(){
 
 Render.prototype.drawObstacles = function(){
     this.obstacles.forEach(function(obstacle){
-        this.ctx.fillStyle ='yellow';
+        this.ctx.fillStyle ='black';
         this.ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
     }.bind(this));
 };
@@ -44,6 +44,7 @@ Render.prototype.drawEnemyLife = function(){
 
 Render.prototype.drawBullet = function(){
     this.bullets.forEach(function(bullet){
-        this.ctx.drawImage(bullet.image, bullet.x, bullet.y, bullet.width, bullet.height);
+        this.ctx.fillStyle ='black';
+        this.ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
     }.bind(this));
 };
