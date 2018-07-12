@@ -103,7 +103,7 @@ Game.prototype.shoot = function(){
     if(this.shooting){
         if(this.cat.teaBag && this.shooting){
             this.cat.image.src="images/sprites/cat-teabag2.png";
-        }else{
+        }else if(!this.cat.teaBag && this.shooting){
             this.cat.image.src="images/sprites/cat2.png";
         }
         this.bullets.push(new Bullet(this.cat.x, this.cat.y, this.cat.width, this.cat.height));
