@@ -47,6 +47,53 @@ function main(){
         body.insertBefore(mainSection, firstScript);
     };
 
+    function buildInstructions(body, firstScript){
+        var mainSection = document.createElement('section');
+        mainSection.setAttribute('id','main-section');
+
+        var titleContainer = document.createElement('div');
+        titleContainer.setAttribute('class', 'heading-container');
+
+        var instructionsTitle = document.createElement('h1');
+        var textTitle = document.createTextNode("Instructions!");
+        instructionsTitle.appendChild(textTitle);
+
+        var instructionsContent = document.createElement('div');
+        instructionsContent.setAttribute('class', 'content')
+        instructionsContent.innerHTML = "<p>&#x21E6; to move left</p>\
+        <p>&#x21E8; to move right</p><p>&#x21E7; to jump</p>\
+        <p>&#x21E9; to teabag</p>\
+        <p>X to shoot</p>\
+        <p>Try not to die &#X1F638</p>";
+
+        var buttonContainer = document.createElement('div');
+        buttonContainer.setAttribute('class', 'button-container');
+
+        var goToStartButton = document.createElement('button');
+        goToStartButton.setAttribute('id', 'go-to-start');
+        goToStartButton.setAttribute('value','go-to-start');
+        goToStartButton.setAttribute('class', 'btn btn-info');
+
+        var textGoToStartButton = document.createTextNode("Go to start");
+        goToStartButton.appendChild(textGoToStartButton);
+        goToStartButton.addEventListener('click', function(){
+            destroyInstructions(body);
+            buildSplash(body, firstScript);
+        });
+
+        titleContainer.appendChild(instructionsTitle);
+        buttonContainer.appendChild(goToStartButton);
+        mainSection.appendChild(titleContainer);
+        mainSection.appendChild(instructionsContent);
+        mainSection.appendChild(buttonContainer);
+        body.insertBefore(mainSection, firstScript);
+    };
+
+    function destroyInstructions(body){
+        var mainSection = document.getElementById('main-section');
+        body.removeChild(mainSection);
+    };
+
     buildSplash(body, firstScript);
 
     function destroySplash(body){
@@ -184,53 +231,6 @@ function main(){
     };
 
     function destroyWin(body){
-        var mainSection = document.getElementById('main-section');
-        body.removeChild(mainSection);
-    };
-
-    function buildInstructions(body, firstScript){
-        var mainSection = document.createElement('section');
-        mainSection.setAttribute('id','main-section');
-
-        var titleContainer = document.createElement('div');
-        titleContainer.setAttribute('class', 'heading-container');
-
-        var instructionsTitle = document.createElement('h1');
-        var textTitle = document.createTextNode("Instructions!");
-        instructionsTitle.appendChild(textTitle);
-
-        var instructionsContent = document.createElement('div');
-        instructionsContent.setAttribute('class', 'content')
-        instructionsContent.innerHTML = "<p>&#x21E6; to move left</p>\
-        <p>&#x21E8; to move right</p><p>&#x21E7; to jump</p>\
-        <p>&#x21E9; to teabag</p>\
-        <p>X to shoot</p>\
-        <p>Try not to die &#X1F638</p>";
-
-        var buttonContainer = document.createElement('div');
-        buttonContainer.setAttribute('class', 'button-container');
-
-        var goToStartButton = document.createElement('button');
-        goToStartButton.setAttribute('id', 'go-to-start');
-        goToStartButton.setAttribute('value','go-to-start');
-        goToStartButton.setAttribute('class', 'btn btn-info');
-
-        var textGoToStartButton = document.createTextNode("Go to start");
-        goToStartButton.appendChild(textGoToStartButton);
-        goToStartButton.addEventListener('click', function(){
-            destroyInstructions(body);
-            buildSplash(body, firstScript);
-        });
-
-        titleContainer.appendChild(instructionsTitle);
-        buttonContainer.appendChild(goToStartButton);
-        mainSection.appendChild(titleContainer);
-        mainSection.appendChild(instructionsContent);
-        mainSection.appendChild(buttonContainer);
-        body.insertBefore(mainSection, firstScript);
-    };
-
-    function destroyInstructions(body){
         var mainSection = document.getElementById('main-section');
         body.removeChild(mainSection);
     };
